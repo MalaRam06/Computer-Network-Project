@@ -1,0 +1,16 @@
+# create venv (optional)
+python -m venv .venv
+# activate
+# Windows: .venv\Scripts\activate
+# macOS/Linux:
+source .venv/bin/activate
+
+pip install -r requirements.txt
+
+# start backends on two ports
+PORT=8001 python backend.py
+# open a second terminal
+PORT=8002 python backend.py
+
+# start the load balancer
+python balancer.py
